@@ -111,6 +111,7 @@ class Http extends AbstractConnection {
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $this->timeout);
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
             curl_setopt($ch, CURLOPT_HEADERFUNCTION, $headerFunction);
+            curl_setopt($ch, CURLOPT_HTTPHEADER,array("Expect:"));
             $response = @curl_exec($ch);
             curl_close($ch);
         } elseif (ini_get('allow_url_fopen')) {
